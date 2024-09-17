@@ -13,14 +13,17 @@
 <body>
   <main>
     <section class="container">
-    <form class="form">
+    <form class="form" id="searchForm">
       <label for="search">
       </label>
-        <input type="text" id="search" placeholder="Znajdź obrazy...">
-        <button class="btn" type="button">Szukaj</button>
-
+        <input type="text" id="search" placeholder="Search for images..." required>
+        <button class="btn" type="submit">Szukaj</button>
     </form>
   </section>
+  <div class="loader" style="display: none;"></div>
+
+  <div class="gallery"></div>
+
 </main>
 <script type="module" src="./main.js"></script>
 </body>

@@ -42,3 +42,11 @@ body{
 #search:focus{
     border: 1px solid #4E75FF
 }
+.gallery{
+    margin-top: 20px;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
