@@ -1,0 +1,10 @@
+import{i as a,S as c}from"./vendor-5ObWk2rO.js";(function(){const o=document.createElement("link").relList;if(o&&o.supports&&o.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))r(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const n of t.addedNodes)n.tagName==="LINK"&&n.rel==="modulepreload"&&r(n)}).observe(document,{childList:!0,subtree:!0});function s(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function r(e){if(e.ep)return;e.ep=!0;const t=s(e);fetch(e.href,t)}})();document.addEventListener("DOMContentLoaded",()=>{document.querySelector("#searchForm").addEventListener("submit",o=>{o.preventDefault();const s=document.querySelector("#search").value.trim();s?l(s):a.error({title:"Error",message:"Wprowadź słowo kluczowe do wyszukiwania."})})});const l=i=>{const s=`https://pixabay.com/api/?key=46036688-33de53886d5db16dc3a765a31&q=${encodeURIComponent(i)}&image_type=photo&orientation=horizontal&safesearch=true`;console.log(`Fetching images for: ${i}`),fetch(s).then(r=>{if(!r.ok)throw new Error(`HTTP error! status: ${r.status}`);return r.json()}).then(r=>{r.hits.length>0?d(r.hits):a.error({title:"Error",message:"Przepraszamy, nie znaleziono obrazów dla tej frazy."})}).catch(r=>{console.error("Błąd w pobieraniu obrazów:",r),a.error({title:"Error",message:"Błąd w pobieraniu obrazów. Sprawdź połączenie z internetem."})})},d=i=>{const o=document.querySelector(".gallery");o.innerHTML="";const s=i.map(e=>`<a href="${e.largeImageURL}" class="gallery-item" >
+        <img src="${e.webformatURL}" alt="${e.tags}" width="250px" height="350px" />
+        <div class="image-info">
+          <p>Likes: ${e.likes}</p>
+          <p>Views: ${e.views}</p>
+          <p>Comments: ${e.comments}</p>
+          <p>Downloads: ${e.downloads}</p>
+        </div>
+      </a>`).join("");o.innerHTML=s,new c(".gallery a").refresh()};
+//# sourceMappingURL=main-kL-xz6gt.js.map
